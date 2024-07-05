@@ -1,3 +1,4 @@
-!.gitkeep
 .env
-data/
+**/data/*
+!.gitkeep
+.DS_Store

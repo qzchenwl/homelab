@@ -41,15 +41,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: homeassistant
-    syncthing:
+    nexus:
       entryPoints:
         - "https"
-      rule: "Host(`syncthing.i.cwllll.com`)"
+      rule: "Host(`nexus.i.cwllll.com`)"
       middlewares:
         - default-headers
         - https-redirectscheme
       tls: {}
-      service: syncthing
+      service: nexus
     truenas:
       entryPoints:
         - "https"
@@ -156,10 +156,10 @@ http:
         servers:
           - url: "http://192.168.0.102:10999"
         passHostHeader: true
-    syncthing:
+    nexus:
       loadBalancer:
         servers:
-          - url: "https://192.168.0.103:8384"
+          - url: "http://192.168.51.21:8081"
         passHostHeader: true
     truenas:
       loadBalancer:

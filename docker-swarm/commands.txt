@@ -9,7 +9,7 @@ Swarm initialized: current node (364ny3a3sw139x31so7gpz7c0) is now a manager.
 
 To add a worker to this swarm, run the following command:
 
-    docker swarm join --token SWMTKN-1-3eibomfy201q2apvxx3j0fssac74bw8zbpb2u5ri1lgxasvxeo-5poe54ewiymg45j26gu5knd55 192.168.51.68:2377
+    docker swarm join --token SWMTKN-1-1psdfgwxugt86cnp50ocu6bcndj38v9v6y7u7xz2zleptjesrp-eex3upza9eitmmbhxu7hns4kn 192.168.51.68:2377
 
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 
@@ -19,7 +19,7 @@ cwl@cwldeMac-mini docker-swarm % docker-compose up -d
 
 Ubuntu 22.04 x86_64
 ---
-cwl@ubuntu-server:~$ docker swarm join --token SWMTKN-1-3eibomfy201q2apvxx3j0fssac74bw8zbpb2u5ri1lgxasvxeo-5poe54ewiymg45j26gu5knd55 192.168.51.68:2377
+cwl@ubuntu-server:~$ docker swarm join --token SWMTKN-1-1psdfgwxugt86cnp50ocu6bcndj38v9v6y7u7xz2zleptjesrp-eex3upza9eitmmbhxu7hns4kn 192.168.51.68:2377
 This node joined a swarm as a worker.
 
 

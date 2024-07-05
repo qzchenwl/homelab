@@ -1,0 +1,19 @@
+services:
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8081:8081
+    volumes:
+      - nexus-data:/nexus-data
+    deploy:
+      placement:
+        constraints:
+          - node.platform.arch == x86_64
+
+volumes:
+  nexus-data:
+
