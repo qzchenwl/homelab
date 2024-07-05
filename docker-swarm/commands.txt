@@ -1,0 +1,43 @@
+Mac Mini M1
+---
+# 由于Mac上的Docker运行于虚拟机中，需要获取宿主机IP和虚拟机IP
+# 参考: https://github.com/moby/swarmkit/issues/1146#issuecomment-1328107088
+cwl@cwldeMac-mini ~ % # create .env
+cwl@cwldeMac-mini ~ % export EXTERNAL_IP=192.168.51.68 DOCKER_VM_IP=172.17.0.1
+cwl@cwldeMac-mini docker-swarm % docker swarm init --advertise-addr $EXTERNAL_IP --listen-addr $DOCKER_VM_IP
+Swarm initialized: current node (364ny3a3sw139x31so7gpz7c0) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-3eibomfy201q2apvxx3j0fssac74bw8zbpb2u5ri1lgxasvxeo-5poe54ewiymg45j26gu5knd55 192.168.51.68:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+cwl@cwldeMac-mini docker-swarm % docker-compose up -d
+
+
+
+Ubuntu 22.04 x86_64
+---
+cwl@ubuntu-server:~$ docker swarm join --token SWMTKN-1-3eibomfy201q2apvxx3j0fssac74bw8zbpb2u5ri1lgxasvxeo-5poe54ewiymg45j26gu5knd55 192.168.51.68:2377
+This node joined a swarm as a worker.
+
+
+
+Mac Mini M1
+---
+cwl@cwldeMac-mini docker-swarm % docker node ls        
+ID                            HOSTNAME         STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+364ny3a3sw139x31so7gpz7c0 *   docker-desktop   Ready     Active         Leader           26.1.4
+oegnu7mkfgezdutq4baza4uwq     ubuntu-server    Ready     Active                          27.0.3
+
+
+
+Mac Mini M1
+---
+cwl@cwldeMac-mini docker-swarm % curl -L https://downloads.portainer.io/ce2-19/portainer-agent-stack.yml -o portainer-agent-stack.yml
+# 删除 /var/lib/docker/volumes 映射
+cwl@cwldeMac-mini docker-swarm % docker stack deploy -c portainer-agent-stack.yml portainer
+
+
+
