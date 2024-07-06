@@ -169,7 +169,7 @@ http:
     plex:
       loadBalancer:
         servers:
-          - url: "https://192.168.0.105:32400"
+          - url: "https://192.168.50.68:32400"
         passHostHeader: true
     minio:
       loadBalancer:
