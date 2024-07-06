@@ -17,7 +17,7 @@ class Server(BaseHTTPRequestHandler):
         del result['subscribers']
         content = yaml.dump(result, allow_unicode=True, sort_keys=False)
         self.send_response(200)
-        self.send_header('Content-type', 'text/yaml')
+        self.send_header('Content-Type', 'text/yaml; charset=utf-8')
         self.end_headers()
         self.wfile.write(bytes(content, 'utf-8'))
 
